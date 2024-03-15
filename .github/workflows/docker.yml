@@ -8,7 +8,7 @@ on:
       - Dockerfile
       - .dockerignore
       - .github/workflows/docker.yml
-      - docker-entrypoint.sh
+      - entrypoint.sh
   workflow_dispatch:
 #  schedule:
 #    - cron: '0 0 * * *'

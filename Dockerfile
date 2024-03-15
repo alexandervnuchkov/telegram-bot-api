@@ -4,6 +4,10 @@ FROM alpine:${ALPINE_VERSION} as builder
 ENV CXXFLAGS=""
 WORKDIR /usr/src/telegram-bot-api
 
+COPY upstream/CMakeLists.txt .
+COPY upstream/td ./td
+COPY upstream/telegram-bot-api ./telegram-bot-api
+
 RUN apk add --no-cache --update alpine-sdk linux-headers git zlib-dev openssl-dev gperf cmake
 COPY telegram-bot-api /usr/src/telegram-bot-api
 ARG nproc=1

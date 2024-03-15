@@ -8,8 +8,8 @@ on:
       - Dockerfile
       - .dockerignore
       - .github/workflows/docker.yml
-  repository_dispatch:
-    types: upstream_commit
+#  repository_dispatch:
+#    types: upstream_commit
   workflow_dispatch:
 #  schedule:
 #    - cron: '0 0 * * *'

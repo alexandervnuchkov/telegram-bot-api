@@ -38,7 +38,7 @@ COPY entrypoint.sh /entrypoint.sh
 
 RUN addgroup -g 101 -S telegram-bot-api \
  && adduser -S -D -H -u 101 -h ${TELEGRAM_WORK_DIR} -s /sbin/nologin -G telegram-bot-api -g telegram-bot-api telegram-bot-api \
-# && chmod +x /entrypoint.sh \
+ && chmod +x /entrypoint.sh \
  && mkdir -p ${TELEGRAM_WORK_DIR} ${TELEGRAM_TEMP_DIR} \
  && chown telegram-bot-api:telegram-bot-api ${TELEGRAM_WORK_DIR} ${TELEGRAM_TEMP_DIR}
 
@@ -50,5 +50,5 @@ HEALTHCHECK \
     --retries=3 \
     CMD nc -z localhost 8081 || exit 1
 
-#ENTRYPOINT ["/entrypoint.sh"]
-ENTRYPOINT ["/usr/local/bin/telegram-bot-api"]
+ENTRYPOINT ["/entrypoint.sh"]
+#ENTRYPOINT ["/usr/local/bin/telegram-bot-api"]

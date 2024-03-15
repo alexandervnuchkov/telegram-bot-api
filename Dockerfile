@@ -23,6 +23,9 @@ RUN cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX:PATH=.. .. \
 
 FROM alpine:${ALPINE_VERSION}
 
+ENV TELEGRAM_WORK_DIR="/var/lib/telegram-bot-api" \
+    TELEGRAM_TEMP_DIR="/tmp/telegram-bot-api"
+
 RUN apk --no-cache --update add \
     libstdc++ \
     openssl

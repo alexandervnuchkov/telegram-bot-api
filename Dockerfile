@@ -9,11 +9,12 @@ RUN apk --no-cache add \
     gperf \
     linux-headers
 
-#WORKDIR /usr/src/telegram-bot-api
+WORKDIR /usr/src/telegram-bot-api
 
 COPY upstream/CMakeLists.txt .
 COPY upstream/td ./td
 COPY upstream/telegram-bot-api ./telegram-bot-api
+COPY entrypoint.sh ./entrypoint.sh
 
 RUN  mkdir -p build \
  && cd build \
@@ -34,7 +35,7 @@ COPY --from=builder \
     /usr/src/telegram-bot-api/bin/telegram-bot-api \
     /usr/local/bin/telegram-bot-api
 
-COPY entrypoint.sh /entrypoint.sh
+#COPY entrypoint.sh /entrypoint.sh
 
 RUN addgroup -g 101 -S telegram-bot-api \
  && adduser -S -D -H -u 101 -h ${TELEGRAM_WORK_DIR} -s /sbin/nologin -G telegram-bot-api -g telegram-bot-api telegram-bot-api \

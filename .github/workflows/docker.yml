@@ -11,7 +11,7 @@ on:
       - entrypoint.sh
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '20 20 * * *'
 
 jobs:
   build:

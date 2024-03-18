@@ -10,8 +10,8 @@ on:
       - .github/workflows/docker.yml
       - entrypoint.sh
   workflow_dispatch:
-#  schedule:
-#    - cron: '20 20 * * *'
+  schedule:
+    - cron: '20 20 * * 5,1'
 
 jobs:
   build:

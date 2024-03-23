@@ -1,0 +1,16 @@
+name: Registry login
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Registry login
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to docker
+        uses: docker/login-action@v3
+        with:
+          registry: reg.vnuchkov.su
+          username: ${{secrets.DOCKER_PASSWORD}}
+          password: ${{secrets.DOCKER_USERNAME}}
